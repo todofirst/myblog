@@ -1,0 +1,69 @@
+{{ extend '../layout/basic.html'}}
+
+{{block 'javascript'}}
+
+<script src="/nodeModules/editor.md/src/editormd.js"></script>
+<script src="/public/js/edit.js"></script>
+{{/block}}
+
+{{block 'css'}}
+
+<link rel="stylesheet" href="/nodeModules/editor.md/css/editormd.min.css" />
+<link rel="stylesheet" href="/public/css/edit.css">
+{{/block}}
+
+{{block 'body'}}
+
+<form class="form" action="/article/edit" enctype="application/x-www-form-urlencoded">
+    <div class="header">
+        <div class="back">
+            <<<返回
+        </div>
+        <div class="inputTitle">
+            <input type="text" name="title" requered placeholder="输入文章标题">
+        </div>
+        <div class="saveAsDraft">
+            <button class="dButton">保存草稿</button>
+        </div>
+        <div class="saveAsArticle">
+            <button class="dButton">发布文章</button>
+        </div>
+        <div class="user">
+            <img src="" alt="">
+        </div>
+        </div>
+        
+        <div class="write_container">
+            <input type="hidden" value="{{articleId}}" class="articleid">
+            <div class="editormd" id="editormd" >
+            <textarea requered style="display: none;" class="editormd-markdown-textarea" name="content"></textarea>
+            <!-- 第二个隐藏文本域，用来构造生成的HTML代码，方便表单POST提交，这里的name可以任意取，后台接受时以这个name键为准 -->
+            </div>
+        </div>
+
+        <div class="mask" style="display: none;">
+            <div class="show">
+                <div class="row">
+                    <select  id="fathers">
+                    </select>
+                    <select name="category" id="children">
+                    </select>
+                </div>
+                <div class="row">
+                    <select name="type" id="type">
+                        <option value="0">原创</option>
+                        <option value="1">转载</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <button class="draft">保存草稿</button>
+                    <button class="article" type="submit">发布文章</button>
+                </div>
+            </div>
+        </div>
+        
+</form>
+
+
+
+{{/block}}

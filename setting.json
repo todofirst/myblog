@@ -1,0 +1,34 @@
+{
+  "title": "个人博客",
+  "maxim": "相由心生",
+  "tabBars": [
+    {
+      "name": "技术分享",
+      "link": "/"
+    },
+    {
+      "name": "关于",
+      "link": "/about"
+    }
+  ],
+  "admin_tags" : [
+    {
+      "tag": "个人信息",
+      "url": "/person"
+    },
+    {
+      "tag": "已发表文章",
+      "url": "/article/my?d=0",
+      "flag": "articles"
+    },
+    {
+      "tag": "草稿",
+      "url": "/article/my?d=1",
+      "flag": "drafts"
+    },
+    {
+      "tag": "评论管理",
+      "url": "/person"
+    }
+  ]
+}

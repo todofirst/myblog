@@ -1,0 +1,31 @@
+
+<div class="head">
+  <div class="head-container">
+    <div class="head-tabs">
+      {{each setting.tabBars}}
+        <div class="head-tab">
+          <a href="{{$value.link}}">
+            {{$value.name}}
+          </a>
+        </div>
+      {{/each}}
+    </div>
+    <div class="siteMark">
+      <div class="web-name to-big">{{setting.maxim}}</div>
+    </div>
+    {{if user}}
+    <div class="user">
+      <span class="username">{{user[0].username}}</span>
+      <div class="jump-bar" style="display: none;">
+        <a href="/person">个人中心</a>
+        <a href="/logout">退出</a>
+      </div>
+    </div>
+    {{else}}
+    <div class="login-or-reg">
+      登陆 | 注册
+    </div>
+    {{/if}}
+  </div>
+</div>
+

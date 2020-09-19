@@ -1,0 +1,163 @@
+/* 整体框架与侧边栏 */
+.middle{
+	width: 98%;
+	height: 82%;
+	margin: 0 auto;
+}
+
+.middle .middle-container{
+	width: inherit;
+	height: inherit;
+	border-top: 10px solid #08bf91;
+	border-radius: 12px;
+	border-left: 1px solid #80808066;
+	border-right: 1px solid #80808066;
+	border-bottom: 1px solid #80808066;
+	background-color: white;
+	position: fixed;
+	display: flex;
+}
+
+.middle-container .left{
+	
+	height: 100%;
+	width: 22%;
+	border-right: 1px solid #80808033;
+}
+
+.middle-container .tags{
+
+	width: 100%;
+	height: 100%;
+	padding: 15px 10px 10px 10px;
+	box-sizing: border-box;
+/* 	overflow: scroll; */
+}
+
+.middle-container .tags .writeBlog{
+  
+	width: 80%;
+	height: 80%;
+	background-color: var(--like-color);
+	margin: 0 auto 8px auto;
+	border-radius: 10px;
+}
+
+
+
+
+.middle-container .tags .tag{
+	position: relative;
+	width: 80%;
+	height: 46px;
+	border-bottom: 1px solid #80808099;
+	margin: 9px auto 0 auto;
+	/*! text-align: center; */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--default-color);
+	font-weight: 600;
+	cursor: pointer;
+	user-select: none;
+}
+
+.middle-container .tags .active::before{
+	content: "";
+	position: absolute;
+	height: 100%;
+	width: 4px;
+	background-color: grey;
+	left: 0;
+	top: 0;
+	transform: scaleY(0.8);
+}
+
+.middle-container .tags .tag:not(:first-child):hover{
+	background-color: #8080801f;
+}
+
+.middle-container .tags .tag a{
+	color: inherit;
+	text-decoration: none;
+	width: 100%;
+	height: 100%;
+	display: block;
+	line-height: 46px;
+	text-align: center;
+}
+
+.middle-container .tags .writeBlog a{
+	width: 100%;
+	height: 100%;
+	color: white;
+	text-decoration: none;
+	display: flex;
+	align-items: center;
+	justify-content: center
+}
+
+
+.middle-container .right{
+	width: 78%;
+	height: 100%;
+	padding: 47px 24px 10px 24px;
+	box-sizing: border-box;
+	display: table;
+}
+
+.middle-container .right .tableWrapper{
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+/* 分页模块 */
+.middle-container .right .page-divide{
+	width: 100%;
+	height: 15%;
+	margin: auto;
+	display: table-row;
+	user-select: none;
+}
+
+.middle-container .right .page-divide .page-divide-container{
+	width: 63%;
+	height: 48%;
+	color: grey;
+	border-radius: 10px;
+	display: flex;
+	justify-content: space-between;
+	/*! text-align: center; */
+	margin: 0 auto;
+}
+
+.middle-container .right .page-divide div{
+	width: 10%;
+	height: 100%;
+	border-radius: 100px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.middle-container .right .page-divide .pages{
+	width: 60%;
+	height: 100%;
+}
+
+.middle-container .right .page-divide .pages .page{
+	width: 10%;
+	height: 100%;
+}
+
+.middle-container .right .page-divide .page:not(.current):hover{
+	background-color: #8080800f;
+	/*! color: white; */
+}
+
+.middle-container .right .page-divide .current{
+	background-color: #80808042;
+	color: white;
+}

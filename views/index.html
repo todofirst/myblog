@@ -1,0 +1,104 @@
+{{ extend '../layout/basic.html'}}
+
+{{ block 'javascript'}}
+  <script src="/public/js/template-web.js"></script>
+  <script type="text/javascript" src="/public/js/index.js"></script>
+
+  <script id="articles-template" type="text/html">
+
+
+  </script>
+{{ /block}}
+
+{{ block 'css'}}
+  <link rel="stylesheet" href="/public/css/index.css">
+{{ /block}}
+
+
+{{ block 'body'}}
+
+  {{include '../layout/header.html'}}
+  
+  <div class="middle">
+    <!-- 左侧选择栏 -->
+    <div class="left">
+      <ul class="tags">
+        <li class="tag">
+          <h4 class="tag_title all">全部分类</h4>		
+        </li>
+        {{each cateFathers father}}
+        <li class="tag">
+          <h4 class="tag_title" >{{father}}</h4>
+          {{each cateObj[father] child}}
+          <div class="subtitle" data-id="{{child._id}}">{{child.name}}</div>
+          {{/each}}
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+    <!-- 中间内容显示 -->
+    <div class="center">
+      <div class="up">
+        <div class="search">
+          <input type="search"  placeholder="搜索关键词" />
+          <div class="search-button">搜</div>
+        </div>
+      </div>
+      <div class="bottom">
+        <div class="articles">
+          {{each articles}}
+          <div class="article">
+            <div class="up">
+              <h2 class="title">
+                {{if $value.type==0}}
+                <a href="/article/{{$value._id}}" class="article-link">
+                  {{$value.title}}
+                </a>
+                {{else}}
+                <a href="{{$value.link}}" class="article-link">
+                  {{$value.title}}
+                </a>
+                {{/if}}
+              </h2>
+            </div>
+            <div class="down">
+              <div class="visit">
+                <span>V</span>
+                <span class="num">{{$value.vNum}}</span>
+              </div>
+              <div class="type">
+                {{if $value.type==0}}
+                  原创
+                {{else}}
+                  转载
+                {{/if}}
+              </div>
+              <div class="target">
+                <span data-id="{{$value.cId}}" class="link-target">{{$value.cName}}</span>
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+        {{include '../partial/load_end.html'}}
+      </div>
+      
+    </div>
+    <!-- 右侧信息展示和条件选择 -->
+    <div class="right">
+      <div class="right-inner">
+        <div class="up">
+          <div class="avatar"></div>
+        </div>
+        <div class="down">
+          <div class="content">
+            <p>下个路口希望再遇到你</p><br />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    
+  </div>
+{{ /block}}

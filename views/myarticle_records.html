@@ -1,0 +1,92 @@
+{{ extend '../layout/adminBasic.html'}}
+
+<!-- 用来根据当前页面内容而设置的CSS文件-->
+{{ block 'adminDIYCSS' }}
+  <link rel="stylesheet" href="/public/css/myarticle_records.css">
+{{ /block}}
+
+<!-- 用来根据当前页面而设置的JS文件-->
+{{ block 'adminDIVJS'}}
+  <script src="/public/js/template-web.js"></script>  
+  <script src="/public/js/myarticle_records.js"></script>
+{{ /block}}
+
+{{ block 'tags'}}
+  <div class="tags">
+    <div class="tag">
+      <div class="writeBlog">
+        <a href="/article/edit">
+          写博客
+        </a>
+      </div>
+    </div>
+    {{ each setting.admin_tags }}
+    <div class="tag {{$index===current? 'active':''}} {{$value.flag}}">
+      <a href="{{$value.url}}">
+        {{$value.tag}}
+      </a>
+    </div>
+    {{ /each }}
+  </div>
+{{ /block}}
+
+
+{{ block 'content'}}
+
+  <div class="table">
+    <div class="tbody">
+
+      <div class="thead">
+        <div class="th">文章ID</div>
+        <div class="th">标题</div>
+        <div class="th">类型</div>
+        <div class="th">分类</div>
+        <div class="th">查看人数</div>
+        <div class="th">文章创建时间</div>
+        <div class="th">上一次修改时间</div>
+        <div class="th">操作</div>
+      </div>
+      
+      {{ each articleRecords}}
+      <div class="tr">
+        <div class="td">
+          <a href="/article/{{$value.aId}}">{{$value.aId}}</a>
+        </div>
+        <div class="td">
+          <a href="/article/edit?aid={{$value.aId}}">{{$value.title}}</a>
+        </div>
+        <div class="td">{{$value.type===0? '原创':'转载'}}</div>
+        <div class="td">{{$value.cName}}</div>
+        <div class="td">{{$value.vNum}}</div>
+        <div class="td">{{$value.create_time}}</div>
+        <div class="td">{{$value.modify_time}}</div>
+        <div class="td del" data-id="{{$value.aId}}">
+            删除
+        </div>
+      </div>
+      {{ /each }}
+
+    </div>
+  </div>
+{{ /block}}
+
+{{ block 'pageDivide'}}
+  <div class="page-divide">
+    <div class="page-divide-container">
+      <div class="first"><<</div>
+      <div class="pre"><</div>
+      <div class="pages">
+        {{ each pageStorage }}
+        {{ if $value===1}}
+          <div class="page current">{{$value}}</div>
+        {{ else }}
+          <div class="page">{{$value}}</div>
+        {{ /if}}
+      {{ /each}}
+      </div>
+      <div class="next">></div>
+      <div class="last">>></div>
+    </div>
+  </div>      
+
+{{ /block}}

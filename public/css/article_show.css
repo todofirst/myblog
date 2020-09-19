@@ -1,0 +1,316 @@
+
+ul{
+  list-style: disc;
+}
+
+ol{
+  list-style: decimal;
+}
+
+.middle{
+  width: 71%;
+  /*! height: 100vh; */
+  margin: 0 auto;
+  box-sizing: border-box;
+  min-height: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.middle .show_content{
+  width: 75%;
+  background-color: white;
+  padding: 45px;
+  margin-right: 1%;
+  min-height: inherit;
+  border-radius: 15px;
+  border: 1px solid #8080804f;
+  box-sizing: border-box;
+}
+
+.middle .show_content .title{
+  
+  border-bottom: 1px solid #8080804f;
+  padding-bottom: 20px;
+}
+
+.middle .show_content .content{
+  margin-top: 20px;
+  position: relative;
+}
+
+.middle .show_content .content-hide{
+  height: 2500px;
+  overflow: hidden;
+}
+
+.middle .show_content .content-hide-bar{
+  content: "查看更多";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-image: linear-gradient(0deg,white, transparent);
+  width: 100%;
+  text-align: center;
+  height: 120px;
+  line-height: 120px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+
+
+
+.middle .show_content .content img{
+  width: 100%;
+}
+
+.middle .show_bar{
+  width: 22%;
+  min-height: inherit;
+  border-radius: 15px;
+}
+
+.middle .show_bar .author{
+
+}
+.middle .show_author_info{
+  padding: 20px;
+  width: 100%;
+  height: 200px;
+  background: white;
+  border: 1px solid #8080804f;
+  border-radius: 31px;
+  position: relative;
+  z-index: -6;
+}
+
+.middle .show_author_info .up{
+  height: 50%;
+  width: 100%;
+  border-bottom: 1px dotted #8080806b;
+}
+
+.middle .show_author_info .up .avatar{
+  width: 90px;
+  height: 90px;
+  border-radius: 100%;
+  position: relative;
+  margin: auto;
+}
+
+.middle .show_author_info .up .avatar::after{
+  border-radius: inherit;
+	background: inherit;
+	position: absolute;
+	content : "";
+	top: 10%;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	filter: blur(10px) brightness(80%);
+  z-index: -3;
+	transform: scale(0.9);
+}
+
+
+.middle .show_author_info .down{
+  width: 100%;
+  height: 50%;
+}
+
+.middle .show_author_info .down .show_detail{
+
+  width: 62%;
+  margin: 0 auto;
+}
+
+.middle .show_author_info .down .row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 13%;
+}
+
+.middle .show_author_info .down .tip{
+  font-weight: 600;
+}
+
+.middle .show_bar #menu{
+
+  /* overflow: auto; 
+  max-width: 100%; */
+}
+
+.middle .show_bar #menu li{
+  padding: 10xp 20px;
+}
+
+/* style of comments */
+.comment-container{
+  width: 100%;
+  margin-top: 95px;
+}
+
+.comment-container .cbtn{
+  text-align: center;
+  width: 30%;
+  padding: 8px;
+  background-color: #08bf91b3;
+  box-sizing: border-box;
+  color: white;
+  border-radius: 24px;
+  margin: 0 auto;
+  margin-top:20px;
+  margin-bottom: 16px;
+  user-select: none;
+  cursor: pointer;
+}
+
+.comment-container>.headtip{
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  font-size: 16px;
+  color: rgb(138, 154, 169);
+}
+
+.comment-container .input-comment{
+  width: inherit;
+  padding: 12px 16px;
+  box-sizing: border-box;
+  background-color: rgb(250, 251, 252);
+  /*! width: 100%; */
+}
+
+.comment-container input{
+  width: 100%;
+  padding: 12px 25px;
+  border: 1px solid #8080801f;
+  /*! border: 1px solid; */
+  border-radius: 12px;
+  box-sizing: border-box;
+  color: grey;
+}
+
+.comment-container input:focus{
+  border: 1px solid #08bf914a;
+  box-shadow: 0 0 2px 1px #08bf914a; 
+  
+}
+
+
+.comment-container>.comments,
+.comment-container>.comments .right>.reply-container{
+  width: 100%;
+}
+
+.comment-container>.comments>.comment,
+.comment-container>.comments .right>.reply-container>.reply
+{
+  width: inherit;
+  box-sizing: border-box;
+  padding: 10px 19px 10px 10px;
+  display: flex;
+  /*! border-radius: 12px; */
+}
+
+.comment-container>.comments>.comment:not(:last-child),
+.comment-container>.comments .right>.reply-container>.reply:not(:last-child)
+{
+  border-bottom: 1px solid #8080801c;
+}
+
+.comment-container>.comments .left,
+.comment-container>.comments .right>.reply-container>.reply>.reply-left
+{
+
+  margin-right: 10px;
+}
+
+.comment-container>.comments .left .avatar>img,
+.comment-container>.comments .right>.reply-container>.reply>.reply-left .avatar>img
+{
+  width: 2.667rem;
+  height: 2.667rem;
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.comment-container>.comments .right,
+.comment-container>.comments .right>.reply-container>.reply>.reply-right
+{
+  width: 100%;
+}
+
+.comment-container>.comments .right>.username,
+.comment-container>.comments .right>.reply-container>.reply>.reply-right>.username
+{
+  font-size: 1.083rem;
+}
+
+.comment-container>.comments .right>.content,
+.comment-container>.comments .right>.reply-container>.reply>.reply-right>.content
+{
+  font-size: 13px;
+  line-height: 22px;
+  text-align: justify;
+}
+
+.comment-container>.comments .right .time,
+.comment-container>.comments .right>.reply-container>.reply>.reply-right .time
+{
+  color: rgb(138, 154, 169);
+  font-size: 13px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-container>.comments .right .time>.funs,
+.comment-container>.comments .right>.reply-container>.reply>.reply-right .time>.funs
+{
+  display: flex;
+  
+}
+
+.comment-container>.comments .right>.reply-container>.reply>.reply-right>.quser{
+  color: inherit;
+  text-decoration: none;
+}
+
+.comment-container>.comments .right .time>.funs>div,
+.comment-container>.comments .right>.reply-container>.reply .time>.funs>div
+{
+  display: flex;
+  width: 46px;
+  justify-content: space-between;
+}
+
+.comment-container>.comments .right .time>.funs .good,
+.comment-container>.comments .right>.reply-container>.reply .time>.funs .good
+{
+
+  margin-right: 52px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.comment-container>.comments .right>.time>.funs .rinfo,
+.comment-container>.comments .right>.reply-container>.reply .time>.funs .rinfo
+{
+  cursor: pointer;
+}
+
+.comment-container>.comments .right>.reply-container{
+  background-color: rgb(250, 251, 252);
+  margin-top: 20px;
+  box-sizing: border-box;
+}
+
+
+
+

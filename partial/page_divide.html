@@ -1,0 +1,15 @@
+<div class="page-divide">
+  <div class="page-divide-container">
+    <div class="first"><<</div>
+    <div class="pre"><</div>
+    {{ each pageStorage }}
+      {{ if $value===current}}
+        <div class="page current">{{$value}}</div>
+      {{ else }}
+        <div class="page">{{$value}}</div>
+      {{ /if}}
+    {{ /each}}
+    <div class="next">></div>
+    <div class="last">>></div>
+  </div>
+</div>      

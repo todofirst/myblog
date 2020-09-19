@@ -1,0 +1,69 @@
+{{ extend '../layout/adminBasic.html'}}
+
+<!-- 用来根据当前页面内容而设置的CSS文件-->
+{{ block 'adminDIYCSS' }}
+  <link rel="stylesheet" href="/public/css/myarticle_records.css">
+{{ /block}}
+
+<!-- 用来根据当前页面而设置的JS文件-->
+{{ block 'adminDIVJS'}}
+  <script src="/public/js/myarticle_records.js"></script>
+{{ /block}}
+
+
+{{ block 'tags'}}
+  <div class="tags">
+    <div class="tag">
+      <div class="writeBlog">
+        <a href="/article/edit">
+          写博客
+        </a>
+      </div>
+    </div>
+    {{ each tags }}
+    <div class="tag {{$index===current? 'active':''}}">
+      <a href="{{$value.url}}">
+        {{$value.tag}}
+      </a>
+    </div>
+    {{ /each }}
+  </div>
+{{ /block}}
+
+{{ block 'content'}}
+
+    <!-- <div class="table">
+      <div class="tbody">
+
+        <div class="thead">
+          <div class="th">文章ID</div>
+          <div class="th">标题</div>
+          <div class="th">类型</div>
+          <div class="th">分类</div>
+          <div class="th">查看人数</div>
+          <div class="th">文章创建时间</div>
+          <div class="th">上一次修改时间</div>
+          <div class="th">操作</div>
+        </div>
+
+        {{ each articles}}
+        <div class="tr">
+          <div class="td">
+            <a href="/article/{{$value.aId}}">dfdfddcdfdvd</a>
+          </div>
+          <div class="td">
+            <a href="/article/edit/{{$value.aId}}">我和我的朋友我和我的朋友我和我的朋友</a>
+          </div>
+          <div class="td">原创</div>
+          <div class="td">Java基础</div>
+          <div class="td">19098</div>
+          <div class="td">2020/5/7 19:36</div>
+          <div class="td">2020/5/7 19:36</div>
+          <div class="td del" data-id="{{$value.aId}}">
+              删除
+          </div>
+        </div>
+        {{ /each }}
+      </div>
+    </div> -->
+{{ /block}}

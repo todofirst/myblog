@@ -1,0 +1,28 @@
+<div class="login-register"  style="display: none;">
+  <div class="l-r-container">
+    <div class="op-pannel">
+      <div class="tip-bar">
+        <div class="tip active">登陆</div>
+        <div class="tip">注册</div>
+      </div>
+      <div class="show-bar">
+        <div class="show login"  style="display: block;">
+          <form action="/login" enctype="application/x-www-form-urlencoded">
+            <input type="text"  required placeholder="请输入账号" name="username">
+            <input type="password" required placeholder="请输入密码" name="password">
+            <button type="submit">登陆</button>
+          </form>
+        </div>
+        <div class="show register"  style="display: none;">
+          <form action="/register" enctype="application/x-www-form-urlencoded">
+            <input type="text"  required placeholder="请输入账号" name="username">
+            <input type="password" required placeholder="请输入密码" name="password">
+            <input type="password" required placeholder="请再次输入密码"name="apassword">
+            <button type="submit">注册</button>
+          </form>
+        </div>
+      </div>
+      <div class="msg">hello</div>
+    </div>
+  </div>
+</div>

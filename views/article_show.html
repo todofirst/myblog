@@ -1,0 +1,90 @@
+{{ extend '../layout/basic.html'}}
+
+{{ block 'javascript'}}
+  <script src="/public/js/article_show.js"></script>
+
+  <script src="/nodeModules/editor.md/lib/flowchart.min.js"></script>
+  <script src="/nodeModules/editor.md/lib/jquery.flowchart.min.js"></script>
+  <script src="/nodeModules/editor.md/lib/marked.min.js"></script>
+  <script src="/nodeModules/editor.md/lib/prettify.min.js"></script>
+  <script src="/nodeModules/editor.md/lib/raphael.min.js"></script>
+  <script src="/nodeModules/editor.md/lib/sequence-diagram.min.js"></script>
+  <script src="/nodeModules/editor.md/lib/underscore.min.js"></script>
+  <script src="/nodeModules/editor.md/editormd.min.js"></script>
+
+  <script src="/public/js/myMenu.js"></script>
+
+  <script src="/public/js/template-web.js"></script>
+
+  <script src="/public/js/comments.js"></script>
+
+{{ /block}}
+
+{{ block 'css'}}
+  <link rel="stylesheet" href="/public/css/article_show.css">
+  <link rel="stylesheet" href="/nodeModules/editor.md/css/editormd.min.css"/>
+  <link rel="stylesheet" href="/public/css/myMenu.css">
+{{ /block}}
+
+{{ block 'body'}}
+
+  {{include '../layout/header.html'}}
+
+  <div class="middle">
+
+    <div class="show_content">
+
+      <h1 class="title">{{title}}</h1>
+      <div class="content" id="content">
+        <textarea style="display:none;">
+          {{article.content}}       
+        </textarea>
+      </div>
+
+      <!-- comment container -->
+      <div class="comment-container"> 
+        <input type="hidden" value="{{article._id}}">
+        <div class="headtip">评论</div>
+        <div class="input-comment" data-uid="{{article.uId}}">
+          <input type="text" placeholder="请输入评论">
+          <div class="cbtn" style="display: none;">评论</div>
+        </div>
+        <div class="comments">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="show_bar">
+      
+      <div class="author">
+        <div class="show_author_info">
+          <div class="up">
+            <div class="avatar" style="background: url({{article.avatar}}) no-repeat center/cover;">
+            </div>
+          </div>
+          <div class="down">
+            <div class="show_detail">
+              <div class="row">
+                <div class="tip">作者：</div>
+                <div class="value">{{article.username}}</div>
+              </div>
+              <div class="row">
+                <div class="tip">文章阅读数: </div>
+                <div class="value">{{article.vNum}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- container of menu -->
+      <div id="menu"></div>
+    </div>
+
+
+ 
+  </div>
+
+  
+{{ /block}}
